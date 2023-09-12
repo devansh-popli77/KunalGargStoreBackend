@@ -76,22 +76,24 @@ public class StockItemMenuController {
                                                                                @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
 
                                                                                @RequestParam(value = "sortBy", defaultValue = "name", required = false)
-                                                                                   String sortBy,
+                                                                               String sortBy,
                                                                                @RequestParam(value = "sortDir", defaultValue = "asc", required = false)
-                                                                                   String sortDir) {
-        PageableResponse<StockItemMenuDto> stockItems = stockItemMenuService.getAllStockItems(pageNumber,pageSize,sortBy,sortDir);
+                                                                               String sortDir) {
+        PageableResponse<StockItemMenuDto> stockItems = stockItemMenuService.getAllStockItems(pageNumber, pageSize, sortBy, sortDir);
         return ResponseEntity.ok(stockItems);
-    } @GetMapping("/stock-item-menu/all/{accountCode}")
+    }
+
+    @GetMapping("/stock-item-menu/all/{accountCode}")
     public ResponseEntity<PageableResponse<StockItemMenuDto>> getAllStockItems(
             @PathVariable String accountCode,
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
-                                                                               @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
 
-                                                                               @RequestParam(value = "sortBy", defaultValue = "name", required = false)
-                                                                                   String sortBy,
-                                                                               @RequestParam(value = "sortDir", defaultValue = "asc", required = false)
-                                                                                   String sortDir) {
-        PageableResponse<StockItemMenuDto> stockItems = stockItemMenuService.searchProducts(accountCode,pageNumber,pageSize,sortBy,sortDir);
+            @RequestParam(value = "sortBy", defaultValue = "name", required = false)
+            String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = "asc", required = false)
+            String sortDir) {
+        PageableResponse<StockItemMenuDto> stockItems = stockItemMenuService.searchProducts(accountCode, pageNumber, pageSize, sortBy, sortDir);
         return ResponseEntity.ok(stockItems);
     }
 }

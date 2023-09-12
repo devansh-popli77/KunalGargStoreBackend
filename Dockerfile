@@ -1,5 +1,3 @@
-FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
+FROM openjdk:18-alpine
 COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
-EXPOSE 9090
